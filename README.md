@@ -1,4 +1,4 @@
-# TP_geolocation_nosql
+# TP_geolocalisation_nosql
 
 Equipe : 
 - Pierre LE PALLEC
