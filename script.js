@@ -7,12 +7,15 @@ function maPosition(position) {
   infopos += "Latitude : " + position.coords.latitude +"\n";
   infopos += "Longitude: " + position.coords.longitude +"\n";
   document.getElementById("infoposition").innerHTML = infopos;
+  
+  var map = "<iframe width=\"500\" height=\"500\" frameborder=\"0\" id=\"iframeMap\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http:\/\/cartosm.eu/map?lon=" + position.coords.longitude + "&lat=" + position.coords.latitude + "&zoom=18&width=500&height=500&mark=true&nav=true&pan=false&zb=bar&style=default&icon=down\"></iframe>";
+  document.getElementById("map").innerHTML = map;
 }
 
 if(navigator.geolocation)
   navigator.geolocation.getCurrentPosition(maPosition);
 
-$.post("http://localhost/NoSql/index.html",{lat:position.coords.latitude,lng:position.coords.longitude});
+//$.post("http://localhost/NoSql/index.html",{lat:position.coords.latitude,lng:position.coords.longitude});
 
 //---------------------------------------------------------------------------------------------------\\
 
@@ -22,7 +25,6 @@ function surveillePosition(position) {
     var infopos = "Position déterminée :\n";
     infopos += "Latitude : " + position.coords.latitude +"\n";
     infopos += "Longitude: " + position.coords.longitude +"\n";
-    infopos += "Vitesse  : " + position.coords.speed +"\n";
     document.getElementById("infoposition").innerHTML = infopos;
 }
 
@@ -52,9 +54,9 @@ function erreurPosition(error) {
     case error.UNKNOWN_ERROR:
         info += "Erreur inconnue";
     break;
+  }
+  document.getElementById("infoposition").innerHTML = info;
 }
-
-document.getElementById("infoposition").innerHTML = info;
 
 
 //---------------------------------------------------------------------------------------------------\\
@@ -62,3 +64,6 @@ document.getElementById("infoposition").innerHTML = info;
 // Met à jour la position toute les minutes au maximum (60000 milliseconde)
 
 navigator.geolocation.getCurrentPosition(maPosition, erreurPosition,{maximumAge:60000,enableHighAccuracy:true});
+
+
+//---------------------------------------------------------------------------------------------------\\
