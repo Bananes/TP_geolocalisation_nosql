@@ -3,7 +3,7 @@
 Equipe : 
 - Pierre LE PALLEC
 - Baptiste CHEVET
-- Vincent TIBODO 
+- Vincent THIBAUDEAU
 - Amandine BUCAS
 
 -------------------------------------------------------------
